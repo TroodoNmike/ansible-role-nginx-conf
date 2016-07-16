@@ -1,0 +1,5 @@
+- name: Creating nginx websites (vhosts)
+  template:
+    src: "{{ role_path }}/templates/{{ item.value.template_name|default(nginx_conf_default_template) }}"
+    dest: "{{ nginx_conf_default_path }}/{{item.value.file_name}}"
+  with_dict: "{{ nginx_conf_sites }}"
