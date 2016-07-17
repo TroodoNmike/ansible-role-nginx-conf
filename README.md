@@ -41,3 +41,19 @@ Then simply add in config:
               template_params:
                 server_name: domain.domain.com        # copy syntax from other template if you need params
                 root: /var/www/yout-name/web          # copy syntax from other template if you need params
+
+Optionally you can define basic auth like this:
+
+    -
+        role: TroodoNmike.nginx-conf
+        nginx_conf_sites:
+            web1:
+              file_name: sites-your-name.conf
+              template_name: your-name.conf.j2        # optional and can be defined by the user
+              template_params:
+                server_name: domain.domain.com        # copy syntax from other template if you need params
+                root: /var/www/yout-name/web          # copy syntax from other template if you need params
+                basic_auth:
+                  username: test
+                  password: test2
+                  file_path: /etc/nginx/conf.d/.htpasswd-my-pass
